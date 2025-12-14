@@ -793,18 +793,573 @@
         }
 
         @media (max-width: 768px) {
+            /* Hero Section Mobile Optimizations */
+            .hero-gradient {
+                padding: 3rem 0 4rem 0;
+            }
+
+            h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .hero-tagline {
+                font-size: 1.25rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .hero-description {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+                margin-bottom: 2rem !important;
+            }
+
+            /* Button Optimizations */
+            .hero-buttons {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .hero-buttons button {
+                width: 100% !important;
+                padding: 1rem !important;
+                font-size: 1.1rem !important;
+                min-height: 56px !important;
+            }
+
+            /* Section Headings */
+            h2 {
+                font-size: 2rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 1rem !important;
+            }
+
+            h3 {
+                font-size: 1.25rem !important;
+                line-height: 1.4 !important;
+            }
+
+            /* Service Cards Mobile Optimization */
+            .service-card {
+                padding: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+                min-height: auto !important;
+            }
+
+            .service-card .card-image {
+                height: 120px !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .service-card .card-icon {
+                width: 48px !important;
+                height: 48px !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .service-card .card-icon svg {
+                width: 24px !important;
+                height: 24px !important;
+            }
+
+            .service-card h3 {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.9rem !important;
+                line-height: 1.5 !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .service-card .feature-tags {
+                gap: 0.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .service-card .feature-tags span {
+                font-size: 0.75rem !important;
+                padding: 0.25rem 0.75rem !important;
+            }
+
+            .service-card .explore-link {
+                font-size: 0.9rem !important;
+                padding: 0.75rem 0 !important;
+            }
+
+            /* Stats Cards */
+            .stats-card {
+                padding: 1.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .stats-counter {
+                font-size: 2rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .stats-label {
+                font-size: 0.9rem !important;
+            }
+
+            /* Testimonial Cards */
+            .testimonial-slide {
+                padding: 2rem 1.5rem !important;
+            }
+
+            .testimonial-text {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .testimonial-author {
+                font-size: 0.9rem !important;
+            }
+
+            .testimonial-role {
+                font-size: 0.8rem !important;
+            }
+
+            /* Project Cards */
+            .project-card {
+                margin-bottom: 2rem !important;
+            }
+
+            .project-card .project-image {
+                height: 200px !important;
+            }
+
+            .project-card .project-content {
+                padding: 1.5rem !important;
+            }
+
+            .project-card h3 {
+                font-size: 1.25rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .project-card p {
+                font-size: 0.9rem !important;
+                line-height: 1.5 !important;
+            }
+
+            /* Contact Form */
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form select {
+                padding: 1rem !important;
+                font-size: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .contact-form button {
+                padding: 1rem !important;
+                font-size: 1.1rem !important;
+                min-height: 56px !important;
+            }
+
+            /* Footer */
+            .footer-section {
+                padding: 2rem 0 !important;
+            }
+
+            .footer-links {
+                margin-bottom: 2rem !important;
+            }
+
+            .footer-links h3 {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .footer-links ul li {
+                margin-bottom: 0.5rem !important;
+            }
+
+            .footer-links a {
+                font-size: 0.9rem !important;
+            }
+
+            /* Navigation */
+            .nav-links {
+                padding: 1rem 0 !important;
+            }
+
+            .nav-links a {
+                font-size: 1rem !important;
+                padding: 0.75rem 1rem !important;
+            }
+
+            /* Modal Optimizations */
+            .modal-content {
+                margin: 1rem !important;
+                max-height: 90vh !important;
+                overflow-y: auto !important;
+            }
+
+            .modal-header {
+                padding: 1.5rem !important;
+            }
+
+            .modal-body {
+                padding: 1.5rem !important;
+            }
+
+            /* Floating Social Media */
             .floating-social {
                 right: 15px;
                 bottom: 80px;
             }
 
             .social-btn {
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Grid Adjustments */
+            .grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+
+            .grid-cols-3 {
+                grid-template-columns: 1fr !important;
+            }
+
+            .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            /* Spacing Improvements */
+            .section-padding {
+                padding: 3rem 0 !important;
+            }
+
+            .container-padding {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            /* Card Hover Effects - Disable on Mobile for Better Performance */
+            .service-card:hover {
+                transform: none !important;
+            }
+
+            .project-card:hover {
+                transform: none !important;
+            }
+
+            /* Touch-friendly interactions */
+            .touch-target {
+                min-height: 44px !important;
+                min-width: 44px !important;
+            }
+
+            /* Improved readability */
+            body {
+                font-size: 16px !important;
+                line-height: 1.6 !important;
+            }
+
+            p {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            /* Better button spacing */
+            .btn-group {
+                gap: 0.75rem !important;
+            }
+
+            .btn-group button {
+                flex: 1 !important;
+                min-height: 48px !important;
+            }
+
+            /* Enhanced Mobile Card Design */
+            .service-card {
+                background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+                border: 1px solid #e2e8f0 !important;
+                border-radius: 16px !important;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+                transition: all 0.3s ease !important;
+                overflow: hidden !important;
+            }
+
+            .service-card:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+                border-color: #3b82f6 !important;
+            }
+
+            /* Mobile Hero Enhancement */
+            .hero-section {
+                background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%) !important;
+                position: relative !important;
+            }
+
+            .hero-section::before {
+                content: '' !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.03"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.03"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.02"/><circle cx="90" cy="40" r="0.5" fill="%23ffffff" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') !important;
+                pointer-events: none !important;
+            }
+
+            /* Enhanced Button Design */
+            .hero-buttons button {
+                background: rgba(255, 255, 255, 0.95) !important;
+                backdrop-filter: blur(10px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+                transition: all 0.3s ease !important;
+            }
+
+            .hero-buttons button:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+            }
+
+            .hero-buttons .whatsapp-btn {
+                background: linear-gradient(135deg, #25d366 0%, #128c7e 100%) !important;
+                color: white !important;
+                border: none !important;
+            }
+
+            /* Improved Stats Cards */
+            .stats-card {
+                background: white !important;
+                border-radius: 16px !important;
+                padding: 1.5rem !important;
+                text-align: center !important;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+                border: 1px solid #e2e8f0 !important;
+                transition: all 0.3s ease !important;
+            }
+
+            .stats-card:hover {
+                transform: translateY(-4px) !important;
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+            }
+
+            /* Enhanced Testimonial Design */
+            .testimonial-slide {
+                background: white !important;
+                border-radius: 20px !important;
+                box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1) !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+
+            /* Better Mobile Navigation */
+            .mobile-menu {
+                background: rgba(255, 255, 255, 0.95) !important;
+                backdrop-filter: blur(20px) !important;
+                border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+            }
+
+            /* Enhanced Footer */
+            .footer-section {
+                background: linear-gradient(135deg, #1f2937 0%, #374151 100%) !important;
+            }
+
+            /* Improved Form Design */
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form select {
+                border-radius: 12px !important;
+                border: 2px solid #e2e8f0 !important;
+                transition: all 0.3s ease !important;
+                background: white !important;
+            }
+
+            .contact-form input:focus,
+            .contact-form textarea:focus,
+            .contact-form select:focus {
+                border-color: #3b82f6 !important;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+            }
+
+            /* Enhanced Modal Design */
+            .modal-content {
+                background: white !important;
+                border-radius: 20px !important;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+
+            /* Better Spacing and Layout */
+            .section-spacing {
+                padding: 4rem 0 !important;
+            }
+
+            .content-spacing {
+                margin-bottom: 2rem !important;
+            }
+
+            /* Enhanced Card Images */
+            .card-image {
+                border-radius: 12px !important;
+                overflow: hidden !important;
+                position: relative !important;
+            }
+
+            .card-image::after {
+                content: '' !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%) !important;
+                pointer-events: none !important;
+            }
+
+            /* Improved Typography Hierarchy */
+            .heading-primary {
+                font-size: 2.5rem !important;
+                font-weight: 700 !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .heading-secondary {
+                font-size: 2rem !important;
+                font-weight: 600 !important;
+                line-height: 1.3 !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .text-large {
+                font-size: 1.125rem !important;
+                line-height: 1.6 !important;
+            }
+
+            /* Enhanced Visual Appeal */
+            .gradient-border {
+                position: relative !important;
+                background: white !important;
+                border-radius: 16px !important;
+            }
+
+            .gradient-border::before {
+                content: '' !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                border-radius: 16px !important;
+                padding: 2px !important;
+                background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4) !important;
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+                mask-composite: exclude !important;
+                -webkit-mask-composite: xor !important;
+            }
+
+            /* Better Mobile Interactions */
+            .interactive-element {
+                transition: all 0.2s ease !important;
+            }
+
+            .interactive-element:active {
+                transform: scale(0.98) !important;
+            }
+
+            /* Enhanced Loading States */
+            .loading-spinner {
+                border: 3px solid rgba(59, 130, 246, 0.1) !important;
+                border-top-color: #3b82f6 !important;
+            }
+        }
+
+        /* Extra Small Mobile Devices (Phones in portrait) */
+        @media (max-width: 480px) {
+            /* Ultra-compact hero section */
+            .hero-section {
+                padding: 2rem 0 3rem 0 !important;
+            }
+
+            h1 {
+                font-size: 2rem !important;
+                line-height: 1.1 !important;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem !important;
+            }
+
+            .hero-description {
+                font-size: 0.95rem !important;
+            }
+
+            /* Compact service cards */
+            .service-card {
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .service-card .card-image {
+                height: 100px !important;
+            }
+
+            .service-card .card-icon {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .service-card h3 {
+                font-size: 1rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.85rem !important;
+            }
+
+            /* Compact buttons */
+            .hero-buttons button {
+                padding: 0.875rem !important;
+                font-size: 1rem !important;
+                min-height: 50px !important;
+            }
+
+            /* Smaller social buttons */
+            .social-btn {
+                width: 45px !important;
+                height: 45px !important;
+            }
+
+            /* Compact stats */
+            .stats-card {
+                padding: 1rem !important;
             }
 
             .stats-counter {
-                font-size: 2rem;
+                font-size: 1.75rem !important;
+            }
+
+            /* Compact testimonials */
+            .testimonial-slide {
+                padding: 1.5rem 1rem !important;
+            }
+
+            /* Better touch targets */
+            button, .clickable {
+                min-height: 44px !important;
+                min-width: 44px !important;
+            }
+
+            /* Improved spacing for small screens */
+            .section-padding {
+                padding: 2rem 0 !important;
+            }
+
+            .container-padding {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
             }
         }
 
