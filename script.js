@@ -8,6 +8,8 @@ const defaultConfig = {
     contact_address: "Ground Floor, Green Plaza Complex, Sahastradhara Road, Dehradun - 248001"
 };
 
+const WHATSAPP_BUSINESS_NUMBER = '916397807056';
+
 async function onConfigChange(config) {
     const companyName = config.company_name || defaultConfig.company_name;
     const tagline = config.company_tagline || defaultConfig.company_tagline;
@@ -109,28 +111,22 @@ function navigateToPage(pageId, event) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-document.getElementById('contact-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
+document.getElementById('contact-form').addEventListener('submit', (e) => {
     const contactMethod = document.querySelector('input[name="contact-method"]:checked').value;
-    const submitBtn = document.getElementById('submit-btn');
-    const submitText = document.getElementById('submit-text');
-    const originalText = submitText.textContent;
-
-    submitBtn.disabled = true;
-    submitText.innerHTML = '<span class="loading-spinner"></span>Processing...';
-
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        company: document.getElementById('company').value || 'N/A',
-        inquiry_type: document.getElementById('inquiry-type').value,
-        message: document.getElementById('message').value,
-        submitted_at: new Date().toISOString()
-    };
 
     if (contactMethod === 'whatsapp') {
+        e.preventDefault();
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            company: document.getElementById('company').value || 'N/A',
+            inquiry_type: document.getElementById('inquiry_type').value,
+            message: document.getElementById('message').value,
+            submitted_at: new Date().toISOString()
+        };
+
         // WhatsApp submission
         const whatsappMessage = `*📧 CONTACT FORM INQUIRY*
 
@@ -152,34 +148,22 @@ _Our team will contact you shortly via your preferred method._`;
         const encodedMessage = encodeURIComponent(whatsappMessage);
         const whatsappUrl = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodedMessage}`;
 
-        // Open WhatsApp
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        // Open WhatsApp in new tab using programmatic link click to bypass popup blockers
+        const link = document.createElement('a');
+        link.href = whatsappUrl;
+        link.target = '_blank';
+        link.rel = 'noopener,noreferrer';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
 
-        submitBtn.disabled = false;
-        submitText.textContent = originalText;
-
-        showToast('✓ Opening WhatsApp... Send the message and our team will contact you shortly!', true);
+        showToast('Opening WhatsApp... Please send the message to complete your request!', true);
         document.getElementById('contact-form').reset();
 
     } else {
-        // Form submission to database
-        if (window.dataSdk && isInitialized) {
-            const result = await window.dataSdk.create(formData);
-
-            submitBtn.disabled = false;
-            submitText.textContent = originalText;
-
-            if (result.isOk) {
-                showToast('✓ Thank you! Our team will contact you shortly within 24 hours.', true);
-                document.getElementById('contact-form').reset();
-            } else {
-                showToast('✗ Failed to send message. Please try again or call us directly.', false);
-            }
-        } else {
-            submitBtn.disabled = false;
-            submitText.textContent = originalText;
-            showToast('✗ Service unavailable. Please call us directly.', false);
-        }
+        // Let Netlify handle the form submission
+        // Optionally, you can add additional processing here if needed
     }
 });
 
@@ -757,7 +741,7 @@ function closeQuickQuoteModal(event) {
 }
 
 // WhatsApp business phone number (change this to your actual WhatsApp business number)
-const WHATSAPP_BUSINESS_NUMBER = '916397807056'; // Format: country code + number without + or spaces
+// const WHATSAPP_BUSINESS_NUMBER = '916397807056'; // Format: country code + number without + or spaces
 
 document.getElementById('whatsapp-quote-form').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -793,8 +777,15 @@ _This is an automated quotation request from HP World SAI Enterprises website._`
     // Create WhatsApp URL
     const whatsappUrl = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodedMessage}`;
 
-    // Open WhatsApp in new tab
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    // Open WhatsApp in new tab using programmatic link click to bypass popup blockers
+    const link = document.createElement('a');
+    link.href = whatsappUrl;
+    link.target = '_blank';
+    link.rel = 'noopener,noreferrer';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
     // Close modal and show success message
     closeQuickQuoteModal();
