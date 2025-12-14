@@ -138,7 +138,7 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
 👤 Name: ${formData.name}
 📧 Email: ${formData.email}
 📱 Phone: ${formData.phone}
-���� Company: ${formData.company}
+ Company: ${formData.company}
 
 *Inquiry Type:*
 ${formData.inquiry_type}
@@ -798,7 +798,7 @@ _This is an automated quotation request from HP World SAI Enterprises website._`
 
     // Close modal and show success message
     closeQuickQuoteModal();
-    showToast('��� Opening WhatsApp... Please send the message to complete your request!', true);
+    showToast('Opening WhatsApp... Please send the message to complete your request!', true);
 
     // Reset form
     document.getElementById('whatsapp-quote-form').reset();
