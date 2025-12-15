@@ -128,13 +128,13 @@ document.getElementById('contact-form').addEventListener('submit', (e) => {
         };
 
         // WhatsApp submission
-        const whatsappMessage = `*📧 CONTACT FORM INQUIRY*
+        const whatsappMessage = `*CONTACT FORM INQUIRY*
 
 *Customer Details:*
-👤 Name: ${formData.name}
-📧 Email: ${formData.email}
-📱 Phone: ${formData.phone}
- Company: ${formData.company}
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Company: ${formData.company}
 
 *Inquiry Type:*
 ${formData.inquiry_type}
@@ -795,3 +795,4 @@ _This is an automated quotation request from HP World SAI Enterprises website._`
     document.getElementById('whatsapp-quote-form').reset();
 
 });
+
