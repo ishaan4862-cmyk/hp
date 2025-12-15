@@ -754,16 +754,16 @@ document.getElementById('whatsapp-quote-form').addEventListener('submit', (e) =>
     const details = document.getElementById('wa-details').value;
 
     // Format the WhatsApp message
-    const message = `*🛒 QUOTATION REQUEST*
+    const message = `*QUOTATION REQUEST*
 
 *Customer Details:*
-👤 Name: ${name}
-📱 Phone: ${phone}
-🏢 Company: ${company}
+Name: ${name}
+Phone: ${phone}
+Company: ${company}
 
 *Product Information:*
-📦 Category: ${category}
-🔢 Quantity: ${quantity}
+Category: ${category}
+Quantity: ${quantity}
 
 *Additional Details:*
 ${details}
@@ -793,4 +793,5 @@ _This is an automated quotation request from HP World SAI Enterprises website._`
 
     // Reset form
     document.getElementById('whatsapp-quote-form').reset();
+
 });
