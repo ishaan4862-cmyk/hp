@@ -364,7 +364,7 @@ const serviceDetails = {
                   <h4 class="font-bold text-gray-900 mb-2">Printers & Peripherals</h4>
                   <ul class="text-gray-600 space-y-1 text-sm">
                     <li>• HP LaserJet & InkJet printers</li>
-                    <li>�� Multi-function printers</li>
+                    <li>• Multi-function printers</li>
                     <li>• Genuine HP inks & toners</li>
                     <li>• Monitors, keyboards, mice</li>
                   </ul>
@@ -793,6 +793,21 @@ _This is an automated quotation request from HP World SAI Enterprises website._`
 
     // Reset form
     document.getElementById('whatsapp-quote-form').reset();
-
 });
+
+
+
+    window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+
+        document.querySelector(".laptop-svg").style.transform =
+            `translateY(${scrollY * 0.15}px)`;
+
+        document.querySelector(".pc-svg").style.transform =
+            `translateY(${scrollY * -0.1}px)`;
+
+        document.querySelector(".tech-parallax").style.backgroundPosition =
+            `0 ${scrollY * 0.3}px, 0 ${scrollY * 0.3}px, 0 0, 0 0`;
+    });
+
 

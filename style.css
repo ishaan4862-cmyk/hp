@@ -1371,3 +1371,38 @@
                 @view-transition {
             navigation: auto;
         }
+ 
+
+
+        /* Tech background grid */
+.tech-parallax {
+    background:
+        linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px),
+        radial-gradient(circle at 20% 20%, rgba(37,99,235,0.15), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(37,99,235,0.15), transparent 40%);
+    background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+}
+
+/* SVG positioning */
+.laptop-svg {
+    position: absolute;
+    width: 520px;
+    left: -120px;
+    top: 120px;
+    opacity: 0.9;
+}
+
+.pc-svg {
+    position: absolute;
+    width: 280px;
+    right: -50px;
+    bottom: 100px;
+    opacity: 0.9;
+}
+
+/* Smooth floating animation */
+.parallax {
+    transition: transform 0.1s linear;
+    filter: drop-shadow(0 0 25px rgba(37,99,235,0.35));
+}
