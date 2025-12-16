@@ -811,3 +811,33 @@ _This is an automated quotation request from HP World SAI Enterprises website._`
     });
 
 
+
+
+// ================= AUTO SCROLL ANIMATION ENGINE =================
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+      revealObserver.unobserve(e.target);
+    }
+  })
+},{threshold:0.15});
+
+document.querySelectorAll('section, .service-card, .project-card, .testimonial-slide').forEach(el=>{
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+
+document.querySelectorAll('.grid').forEach(grid=>{
+  grid.classList.add('stagger');
+  revealObserver.observe(grid);
+});
+
+// ================= PARALLAX =================
+window.addEventListener('scroll',()=>{
+  const y = window.scrollY;
+  document.querySelectorAll('.parallax').forEach(el=>{
+    const s = el.dataset.speed || 0.2;
+    el.style.transform = `translateY(${y*s}px)`;
+  });
+});
