@@ -162,7 +162,7 @@ _Our team will contact you shortly via your preferred method._`;
         document.getElementById('contact-form').reset();
 
     }
-    // If contactMethod is 'form', the form will submit normally to vercel
+    // If contactMethod is 'form', the form will submit normally to Netlify
     // The action="/success.html" will handle the redirect
 });
 
