@@ -122,7 +122,7 @@
         content="HP laptops, gaming PCs, Dell, ASUS, Acer, IT hardware & security solutions in Dehradun.">
     <meta name="twitter:image" content="https://www.saienterpriseshpworld.com/assets/hp-world-store.jpg">
 
-    <!-- Performance -->
+    <!-- Perance -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -2799,7 +2799,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <form id="contact-form" name="contact" method="POST" data-vercel="true"
+                                <form id="contactform" name="contact" method="POST" data-vercel="true"
                                     data-vercel-honeypot="bot-field" action="/success.html" class="space-y-6">
                                     <!-- REQUIRED FOR vercel -->
                                     <input type="hidden" name="form-name" value="contact" />
@@ -3288,6 +3288,15 @@
                 ppendChild(a); if (a.addEventListener) { a.addEventListener('load', c, false) } else if (a.attachEvent) { a.attachEvent('onload', c) }
             }
         })();</script>
+    <script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // do your fetch / email / backend call here
+
+  window.location.href = "/success.html";
+});
+</script>
 </body>
 
 </html>
