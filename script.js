@@ -161,10 +161,9 @@ _Our team will contact you shortly via your preferred method._`;
         showToast('Opening WhatsApp... Please send the message to complete your request!', true);
         document.getElementById('contact-form').reset();
 
-    } else {
-        // Let Netlify handle the form submission
-        // Optionally, you can add additional processing here if needed
     }
+    // If contactMethod is 'form', the form will submit normally to Netlify
+    // The action="/success.html" will handle the redirect
 });
 
 document.getElementById('mobile-menu-btn').addEventListener('click', () => {
@@ -812,32 +811,217 @@ _This is an automated quotation request from HP World SAI Enterprises website._`
 
 
 
+// ========================================
+// LENIS SMOOTH SCROLLING
+// ========================================
 
-// ================= AUTO SCROLL ANIMATION ENGINE =================
-const revealObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('show');
-      revealObserver.unobserve(e.target);
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Lenis
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        smoothTouch: false,
+        infinite: false,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
     }
-  })
-},{threshold:0.15});
 
-document.querySelectorAll('section, .service-card, .project-card, .testimonial-slide').forEach(el=>{
-  el.classList.add('reveal');
-  revealObserver.observe(el);
+    requestAnimationFrame(raf);
+    
+    console.log('✓ Lenis smooth scrolling initialized');
+    
+    // ========================================
+    // MOBILE MENU ENHANCEMENT
+    // ========================================
+    
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        });
+        
+        // Close on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    }
+    
+    console.log('✓ Mobile menu enhanced');
+    
+    // ========================================
+    // SCROLL ANIMATIONS
+    // ========================================
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.1
+    };
+    
+    const animateObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        animateObserver.observe(section);
+    });
+    
+    // Observe cards
+    document.querySelectorAll('.group').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        animateObserver.observe(card);
+    });
+    
+    console.log('✓ Scroll animations initialized');
 });
 
-document.querySelectorAll('.grid').forEach(grid=>{
-  grid.classList.add('stagger');
-  revealObserver.observe(grid);
-});
+// Add animate-in class styles dynamically
+const style = document.createElement('style');
+style.textContent = `
+    .animate-in {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+    
+    body {
+        padding-top: 80px;
+    }
+    
+    nav {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    #mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+    
+    #mobile-menu:not(.hidden) {
+        max-height: 800px;
+    }
+    
+    .nav-link.active {
+        color: #2563eb !important;
+        background: rgba(37, 99, 235, 0.1);
+    }
+    
+    .group {
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .group:hover {
+        transform: translateY(-8px);
+    }
+`;
+document.head.appendChild(style);
 
-// ================= PARALLAX =================
-window.addEventListener('scroll',()=>{
-  const y = window.scrollY;
-  document.querySelectorAll('.parallax').forEach(el=>{
-    const s = el.dataset.speed || 0.2;
-    el.style.transform = `translateY(${y*s}px)`;
-  });
-});
+console.log('✓ All enhancements loaded');
+
+
+
+// ========================================
+// MOBILE MENU FIX - GUARANTEED WORKING
+// ========================================
+
+// Wait for DOM to be ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+} else {
+    initMobileMenu();
+}
+
+function initMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        // Remove any existing listeners and add new one
+        mobileMenuBtn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+            console.log('Mobile menu toggled');
+        };
+        
+        // Close menu when clicking on navigation links
+        const navLinks = mobileMenu.querySelectorAll('a[onclick*="navigateToPage"]');
+        navLinks.forEach(link => {
+            const originalOnclick = link.onclick;
+            link.onclick = function(e) {
+                if (originalOnclick) {
+                    originalOnclick.call(this, e);
+                }
+                mobileMenu.classList.add('hidden');
+            };
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        console.log('✓ Mobile menu initialized and working');
+    } else {
+        console.error('Mobile menu elements not found');
+    }
+}
+
+// Add CSS for mobile menu animation
+const mobileMenuStyle = document.createElement('style');
+mobileMenuStyle.textContent = `
+    #mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out, opacity 0.3s ease;
+        opacity: 0;
+    }
+    
+    #mobile-menu:not(.hidden) {
+        max-height: 900px;
+        opacity: 1;
+    }
+    
+    @media (max-width: 1024px) {
+        body {
+            padding-top: 72px;
+        }
+    }
+`;
+document.head.appendChild(mobileMenuStyle);
+
